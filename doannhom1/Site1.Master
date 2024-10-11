@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="doannhom1.Site1" %>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+    <style>
+        .btnn{
+            font-size:25px;
+            padding: 5px;
+            color: blue;
+            text-decoration:none;
+        }
+        .btnn:hover{
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+  <form id="form1" runat="server">
+        <div class="container">
+          <div class="menu">
+                  <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/home.aspx">Trang chủ</asp:HyperLink>
+                  <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/sanpham.aspx">Sản phẩm</asp:HyperLink>
+                  <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/khuyenmai.aspx">Khuyến mãi</asp:HyperLink>
+                  <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/lienhe.aspx">Liên Hệ</asp:HyperLink>
+                  <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/login.aspx">Login</asp:HyperLink>
+          </div>
+            <div class="banner"></div>
+            <div class="main">
+            <div class="left">            
+                <h1>Danh Mục</h1>
+                <asp:DataList ID="DataList1" runat="server">
+                    <ItemTemplate>
+                      <asp:LinkButton CssClass="btnn" ID="LinkButton1" runat="server" Text='<%# Eval("tenloai") %>'
+                           CommandArgument='<%# Eval("maloai") %>' OnClick="LinkButton1_Click"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:DataList>
+           </div>
+          <div class="content">
+              <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                      </asp:ContentPlaceHolder>
+          </div>
+       
+            </div>
+          <footer>
+               copyRight NHÓM 1 <br /> SĐT: 0999999999
+          </footer>
+        </div>
+    </form>
+</body>
+</html>
